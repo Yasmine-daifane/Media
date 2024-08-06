@@ -1,0 +1,19 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
+use App\Models\Services; // Adjust according to your actual model and namespace
+
+class ServicesController extends Controller
+{
+    public function index()
+    {
+        // Fetch services from the database
+        $services = Services::all(); // Adjust to your actual query needs
+
+        // Return the view with services data
+        return view('services.index', compact('services'));
+    }
+}

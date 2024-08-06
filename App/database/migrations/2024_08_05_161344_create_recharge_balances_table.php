@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Schema;
         Schema::create('recharge_balances', function (Blueprint $table) {
             $table->id();
             $table->decimal('price', 8, 2);
-            $table->integer('duration');
             $table->date('date');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();

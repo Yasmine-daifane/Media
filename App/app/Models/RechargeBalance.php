@@ -9,7 +9,15 @@ class RechargeBalance extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['price', 'duration', 'date', 'user_id'];
+    protected $fillable = [
+        'price',
+        'date',
+        'user_id',
+        'payment_method',  // Add new fields here
+        'payment_receipt',
+        'comment',
+    ];
+
 
     public function user()
     {

@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController; // Import the DashboardController
 use App\Http\Controllers\RechargeController; // Import the RechargeController
+use App\Http\Controllers\ServicesController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -33,6 +34,14 @@ Route::middleware('auth')->group(function () {
 
     Route::post('/recharge', [RechargeController::class, 'store'])->name('recharge.store');
 
+
+    Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
+
 });
 
 require __DIR__.'/auth.php';
+
+
+
+
+
