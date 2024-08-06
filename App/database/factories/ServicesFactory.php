@@ -2,26 +2,18 @@
 
 namespace Database\Factories;
 
+use App\Models\Services;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Services>
- */
 class ServicesFactory extends Factory
 {
     protected $model = Services::class;
 
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+    public function definition()
     {
         return [
-            'title' => $this->faker->word,
-            'description' => $this->faker->text,
+            'title' => $this->faker->sentence(),
+            'description' => $this->faker->paragraph(),
         ];
     }
-    
 }

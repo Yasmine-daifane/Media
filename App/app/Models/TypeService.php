@@ -9,7 +9,7 @@ class TypeService extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['price', 'duration', 'created_at', 'plan_service_id'];
+    protected $fillable = ['price', 'duration', 'plan_service_id'];
 
     public function planService()
     {

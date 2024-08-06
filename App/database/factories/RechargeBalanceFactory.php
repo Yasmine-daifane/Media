@@ -2,20 +2,14 @@
 
 namespace Database\Factories;
 
+use App\Models\RechargeBalance;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-/**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\RechargeBalance>
- */
 class RechargeBalanceFactory extends Factory
 {
     protected $model = RechargeBalance::class;
-    /**
-     * Define the model's default state.
-     *
-     * @return array<string, mixed>
-     */
-    public function definition(): array
+
+    public function definition()
     {
         return [
             'price' => $this->faker->randomFloat(2, 1, 1000),
