@@ -1,10 +1,10 @@
 <?php
-
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\UserTypeService ;
+use App\Models\UserTypeService;
+use App\Models\TypeService;
+use App\Models\User;
 
 class UserTypeServiceSeeder extends Seeder
 {
@@ -13,6 +13,18 @@ class UserTypeServiceSeeder extends Seeder
      */
     public function run(): void
     {
-        UserTypeService::factory()->count(10)->create();
+        $typeServices = TypeService::all();
+        $users = User::all();
+
+        foreach ($users as $user) {
+            foreach ($typeServices as $typeService) {
+                UserTypeService::create([
+                    'pricefinal' => rand(1, 1000),
+                    'date' => now(),
+                    'user_id' => $user->id,
+                    'type_service_id' => $typeService->id,
+                ]);
+            }
+        }
     }
 }

@@ -36,6 +36,8 @@ Route::middleware('auth')->group(function () {
 
 
     Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
+    Route::get('/services/{id}/packs', [ServicesController::class, 'showPacks'])->name('services.packs');
+
 
 });
 

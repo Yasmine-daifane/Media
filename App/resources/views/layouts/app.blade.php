@@ -14,14 +14,14 @@
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.3/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@2.8.0" defer></script>
+
 </head>
 <body class="font-sans antialiased">
     <div class="min-h-screen bg-gray-100 dark:bg-gray-900 flex">
-
-    <aside class="w-64 bg-gray-200">
-    @include('layouts.sidebar')
-    </aside>
-
+        <aside class="w-64 bg-gray-200 h-screen">
+            @include('layouts.sidebar')
+        </aside>
 
         <div class="flex-1 p-6">
             @include('layouts.navigation')
@@ -35,13 +35,11 @@
                 </header>
             @endif
 
-           <!-- Page Content -->
-           <main>
+            <!-- Page Content -->
+            <main class="max-w-7xl mx-auto">
                 @yield('content')
             </main>
         </div>
     </div>
 </body>
 </html>
-
-

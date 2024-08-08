@@ -10,7 +10,15 @@ class PlanService extends Model
     use HasFactory;
 
 
-    protected $fillable = ['image', 'video', 'link', 'services_id'];
+
+
+    protected $fillable = [
+        'name', 'description', 'features', 'image', 'video', 'link', 'services_id'
+    ];
+    
+    protected $casts = [
+        'features' => 'array', // Automatically casts JSON to array
+    ];
 
     public function services()
     {
