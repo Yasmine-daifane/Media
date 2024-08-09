@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\RechargeBalance;
+use Illuminate\Support\Facades\Auth;
 
 class RechargeController extends Controller
 {
@@ -38,9 +39,36 @@ class RechargeController extends Controller
         // Save the recharge data to the database
         $recharge->save();
 
+        // Update the user's balance
+        $user = auth()->user();
+        $user->balance += $request->balanceAmount;
+        $user->save();
+
         // Optionally, notify admin here if needed
 
         // Redirect user with a success message
         return redirect()->route('services.index')->with('success', 'Recharge request submitted. Please wait for admin confirmation.');
+    }
+
+    public function recharge(Request $request)
+    {
+        $request->validate([
+            'amount' => 'required|numeric|min:0.01',
+        ]);
+
+        $user = Auth::user();
+
+        // Create a new recharge record
+        RechargeBalance::create([
+            'price' => $request->amount,
+            'date' => now(),
+            'user_id' => $user->id,
+        ]);
+
+        // Update the user's balance
+        $user->balance += $request->amount;
+        $user->save();
+
+        return redirect()->back()->with('status', 'Balance recharged successfully!');
     }
 }

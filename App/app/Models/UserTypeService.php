@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Carbon;
 
 class UserTypeService extends Model
 {
@@ -20,5 +21,10 @@ class UserTypeService extends Model
     public function typeService()
     {
         return $this->belongsTo(TypeService::class);
+    }
+
+    public function isActive()
+    {
+        return $this->expiration_date > Carbon::now();
     }
 }

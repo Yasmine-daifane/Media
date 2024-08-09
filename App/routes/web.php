@@ -4,7 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\DashboardController; // Import the DashboardController
 use App\Http\Controllers\RechargeController; // Import the RechargeController
 use App\Http\Controllers\ServicesController;
-
+use  App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -38,12 +38,11 @@ Route::middleware('auth')->group(function () {
     Route::get('/services', [ServicesController::class, 'index'])->name('services.index');
     Route::get('/services/{id}/packs', [ServicesController::class, 'showPacks'])->name('services.packs');
 
+    Route::post('/order', [OrderController::class, 'order'])->name('order.store');
+
 
 });
 
 require __DIR__.'/auth.php';
-
-
-
 
 

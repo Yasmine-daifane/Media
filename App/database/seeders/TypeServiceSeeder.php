@@ -26,8 +26,8 @@ class TypeServiceSeeder extends Seeder
         ]);
 
         TypeService::create([
-            'price' => 45,
-            'duration' => 30, // 1 month
+            'price' => 400 ,
+            'duration' =>  365, // 1 month
             'plan_service_id' => 1, // Assuming plan_service_id 1 for Plan 1
         ]);
 
