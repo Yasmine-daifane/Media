@@ -12,16 +12,16 @@
     <div class="content-wrapper pt-4">
         <div class="content-header">
             <div class="container-fluid">
-                <div class="row mb-2">
+                <div class="row mb-4">
                     <div class="col-sm-6">
-                        <h1 class="text-blue-600 font-bold">Hello, {{ Auth::user()->name }}</h1>
+                        <h1 class="text-blue-600 font-bold">Hello, {{ Auth::user()->firstname }}</h1>
                     </div>
                 </div>
             </div>
         </div>
         <section class="content">
             <div class="container-fluid">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div class="col-lg-4 col-6">
                         <div class="bg-blue-500 p-4 rounded-lg shadow">
                             <div class="inner">
@@ -65,8 +65,67 @@
                         </div>
                     </div>
                 </div>
+</section>
+                <!-- New Section for Services Ordered and Chart -->
+    <section class="content"> <!-- Ensure this section is closed properly -->
+                    <div class="container-fluid">
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> <!-- Added grid container for two columns -->
+                            <div class="col-md-6">
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Services Ordered Chart</h3>
+                                        <form method="GET" action="{{ route('dashboard') }}">
+                                            <select name="timeframe" onchange="this.form.submit()">
+                                                <option value="week" {{ $timeframe === 'week' ? 'selected' : '' }}>Weekly</option>
+                                                <option value="month" {{ $timeframe === 'month' ? 'selected' : '' }}>Monthly</option>
+                                                <option value="year" {{ $timeframe === 'year' ? 'selected' : '' }}>Yearly</option>
+                                            </select>
+                                        </form>
+                                    </div>
+                                    <div class="card-body">
+                                        <canvas id="orderedServicesChart"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6"> <!-- Moved this div inside the grid container -->
+                                <div class="card">
+                                    <div class="card-header">
+                                        <h3 class="card-title">Transactions Historique</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <table class="min-w-full bg-white">
+                                            <thead>
+                                                <tr>
+                                                    <th class="py-2 px-4 border-b"> Service</th>
+                                                    <th class="py-2 px-4 border-b">Plan</th>
+                                                    <th class="py-2 px-4 border-b">Amount</th>
+                                                    <th class="py-2 px-4 border-b">Order Date </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                @foreach($transactions as $transaction)
+                                                <tr>
+                                                    <td class="py-2 px-4 border-b">
+                                                        {{ $transaction->typeService->planService->services->title  }}
+                                                    </td>
+                                                    <td class="py-2 px-4 border-b">
+                                                        {{ $transaction->typeService->planService->name }}
+                                                    </td>
+                                                    <td class="py-2 px-4 border-b">{{ number_format($transaction->pricefinal, 2) }}</td>
+                                                    <td class="py-2 px-4 border-b">{{ $transaction->created_at->format('d/m/Y H:i') }}</td>
+                                                </tr>
+                                                @endforeach
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section> <!-- Ensure this section is closed properly -->
+
             </div>
-        </section>
+    </section>
     </div>
 </div>
 
@@ -122,4 +181,68 @@
         document.getElementById('addBalanceModal').classList.add('hidden');
     }
 </script>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const chartData = @json($chartData);
+        const labels = Object.keys(chartData);
+        const datasets = [];
+
+        // Prepare datasets for each service
+        for (const service in chartData[labels[0]]) {
+            const data = labels.map(label => chartData[label][service] || 0);
+            datasets.push({
+                label: service,
+                data: data,
+                backgroundColor: getRandomColor(),
+                borderColor: getRandomColor(),
+                borderWidth: 1
+            });
+        }
+
+        const ctx = document.getElementById('orderedServicesChart').getContext('2d');
+        const orderedServicesChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: datasets
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        max: 10, // Set a maximum value for the y-axis (adjust as needed)
+                        ticks: {
+                            stepSize: 1 // Set step size for better readability
+                        }
+                    },
+                    x: {
+                        barPercentage: 0.5, // Adjust bar thickness
+                        categoryPercentage: 0.6 // Adjust space between bars
+                    }
+                },
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            label: function(tooltipItem) {
+                                return `${tooltipItem.dataset.label}: ${tooltipItem.raw}`;
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        function getRandomColor() {
+            const letters = '0123456789ABCDEF';
+            let color = '#';
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+    });
+</script>
+
 @endsection
