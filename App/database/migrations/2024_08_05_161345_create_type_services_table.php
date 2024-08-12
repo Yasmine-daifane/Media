@@ -14,7 +14,7 @@ class CreateTypeServicesTable extends Migration
         Schema::create('type_services', function (Blueprint $table) {
             $table->id();
             $table->decimal('price', 8, 2);
-            $table->integer('duration'); // Assuming duration is an integer (e.g., number of days)
+            $table->integer('duration')->nullable(); // Assuming duration is an integer (e.g., number of days)
             $table->foreignId('plan_service_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });

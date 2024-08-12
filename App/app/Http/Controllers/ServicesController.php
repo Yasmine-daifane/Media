@@ -45,3 +45,9 @@ class ServicesController extends Controller
         return view('services.show', compact('service', 'packs'));
     }
 }
+
+
+
+
+
+

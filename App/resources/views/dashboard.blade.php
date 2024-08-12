@@ -25,8 +25,8 @@
                     <div class="col-lg-4 col-6">
                         <div class="bg-blue-500 p-4 rounded-lg shadow">
                             <div class="inner">
-                                <h3 class="text-white text-2xl">{{ $orderCount }}</h3>
-                                <p class="text-white">Number of Orders</p>
+                                <h3 class="text-white text-2xl">{{ number_format($totalRechargeAmount, 2) }} MAD</h3>
+                                <p class="text-white">Total Recharge Amount</p>
                             </div>
                             <div class="icon">
                                 <i class="ion ion-bag text-white"></i>

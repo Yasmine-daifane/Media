@@ -16,7 +16,9 @@ class DashboardController extends Controller
         $services = Services::all();
         $user = Auth::user(); // Get the authenticated user
         $userTypeServiceCount = $user->userTypeServices()->count();
-        $orderCount = UserTypeService::count();
+      
+        $totalRechargeAmount = RechargeBalance::where('user_id', $user->id)->sum('price'); // Calculate total recharge amount
+
         $totalBalance = $user->balance; // Get the user's balance directly
 
         // Fetch transactions for the user with related services and plans
@@ -35,7 +37,7 @@ class DashboardController extends Controller
             $chartData[$timeFrameLabel][$orderedService->typeService->planService->services->title] = $orderedService->count;
         }
 
-        return view('dashboard', compact('services', 'transactions', 'orderCount', 'userTypeServiceCount', 'totalBalance', 'chartData', 'timeframe'));
+        return view('dashboard', compact('services', 'transactions', 'totalRechargeAmount', 'userTypeServiceCount', 'totalBalance', 'chartData', 'timeframe'));
     }
 
     private function getOrderedServicesSummary($userId, $timeframe)
