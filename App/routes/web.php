@@ -6,6 +6,8 @@ use App\Http\Controllers\RechargeController; // Import the RechargeController
 use App\Http\Controllers\ServicesController;
 use  App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController; // Import AdminController
+
 
 /*
 |--------------------------------------------------------------------------
@@ -42,6 +44,17 @@ Route::middleware('auth')->group(function () {
     Route::post('/order', [OrderController::class, 'order'])->name('order.store');
 
 
+
+
+
+
+});
+
+
+// Routes for admin users
+Route::prefix('admin')->middleware(['auth', 'role:admin_total'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    // ... other admin routes
 });
 
 require __DIR__.'/auth.php';

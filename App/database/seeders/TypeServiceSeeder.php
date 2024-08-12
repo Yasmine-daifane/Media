@@ -135,5 +135,107 @@ class TypeServiceSeeder extends Seeder
             'duration' => null, // No specific duration for this type
             'plan_service_id' => 7, // Assuming plan_service_id 5 for Standard Design Plan
         ]);
+
+
+
+
+        TypeService::create([
+            'price' => 2400 / $exchangeRate, // 2400 MAD in USD
+            'duration' => 30, // 1 month
+            'plan_service_id' => 9, // Adjust the plan_service_id accordingly
+        ]);
+
+        TypeService::create([
+            'price' => 4700 / $exchangeRate, // 4700 MAD in USD
+            'duration' => 30, // 1 month
+            'plan_service_id' => 10, // Adjust the plan_service_id accordingly
+        ]);
+
+        TypeService::create([
+
+            'price' => 11985 / $exchangeRate, // 11985 MAD in USD
+            'duration' => 90, // 3 months
+            'plan_service_id' => 10, // Adjust the plan_service_id accordingly
+
+        ]);
+
+        TypeService::create([
+
+            'price' => 42300 / $exchangeRate, // 42300 MAD in USD
+            'duration' => 365, // 12 months
+            'plan_service_id' => 10, // Adjust the plan_service_id accordingly
+
+        ]);
+
+        TypeService::create([
+
+            'price' => 6120 / $exchangeRate, // 6120 MAD in USD
+            'duration' => 90, // 3 months
+            'plan_service_id' => 9, // Adjust the plan_service_id accordingly
+        ]);
+
+        TypeService::create([
+
+            'price' => 11000 / $exchangeRate, // 11000 MAD in USD
+            'duration' => 30, // 1 month
+            'plan_service_id' => 11, // Adjust the plan_service_id accordingly
+        ]);
+
+        TypeService::create([
+
+            'price' => 28050 / $exchangeRate, // 28050 MAD in USD
+            'duration' => 90, // 3 months
+            'plan_service_id' => 11, // Adjust the plan_service_id accordingly
+
+        ]);
+
+        TypeService::create([
+
+            'price' => 121000 / $exchangeRate, // 121000 MAD in USD
+            'duration' => 365, // 12 months
+            'plan_service_id' => 11, // Adjust the plan_service_id accordingly
+          
+        ]);
+
+        TypeService::create([
+
+            'price' => 26400 / $exchangeRate, // 26400 MAD in USD
+            'duration' => 365, // 12 months
+            'plan_service_id' => 9, // Adjust the plan_service_id accordingly
+        ]);
+
+
+     TypeService::create([
+
+            'price' => 2500 / $exchangeRate, // 26400 MAD in USD
+            'duration' =>  null,
+            'plan_service_id' => 13, // Adjust the plan_service_id accordingly
+        ]);
+
+      TypeService::create([
+
+            'price' =>  2400/ $exchangeRate, // 26400 MAD in USD
+            'duration' => 30,
+            'plan_service_id' => 12, // Adjust the plan_service_id accordingly
+        ]);
+
+
+
+        TypeService::create([
+
+            'price' => 12600/ $exchangeRate, // 26400 MAD in USD
+            'duration' =>180,
+            'plan_service_id' => 12, // Adjust the plan_service_id accordingly
+        ]);
+
+
+
+        TypeService::create([
+
+            'price' =>  22800 / $exchangeRate, // 26400 MAD in USD
+            'duration' =>365,
+            'plan_service_id' => 12, // Adjust the plan_service_id accordingly
+        ]);
     }
+
 }

@@ -146,21 +146,7 @@ class PlanServiceSeeder extends Seeder
 
 
 
-         // CRM Service Plans
-         PlanService::create([
-            'name' => 'Basic',
-            'description' => 'CRM solution for small businesses',
-            'features' => [
-                'Contact management',
-                'Lead management',
-                'Email integration',
-            ],
-            'image' => 'path_to_image_crm_basic.jpg',
-            'video' => 'path_to_video_crm_basic.mp4',
-            'link' => 'https://example.com/crm_basic',
-            'services_id' => 4, // Replace with appropriate Services ID for CRM
-        ]);
-
+         
         PlanService::create([
             'name' => 'Standard',
             'description' => 'Enhanced CRM solution for growing businesses',
@@ -176,44 +162,20 @@ class PlanServiceSeeder extends Seeder
             'services_id' => 4, // Replace with appropriate Services ID for CRM
         ]);
 
-        // Marketing Service Plans
-        PlanService::create([
-            'name' => 'Basic',
-            'description' => 'Starter marketing package for new businesses',
-            'features' => [
-                'Social media strategy',
-                'Email campaigns',
-                'Basic SEO',
-            ],
-            'image' => 'path_to_image_marketing_basic.jpg',
-            'video' => 'path_to_video_marketing_basic.mp4',
-            'link' => 'https://example.com/marketing_basic',
-            'services_id' => 3, // Replace with appropriate Services ID for MARKETING STRATEGY
-        ]);
 
-        PlanService::create([
-            'name' => 'Standard',
-            'description' => 'Comprehensive marketing package for established businesses',
-            'features' => [
-                'Content creation',
-                'Ad campaign management',
-                'Advanced SEO',
-                'Analytics and reporting',
-            ],
-            'image' => 'path_to_image_marketing_standard.jpg',
-            'video' => 'path_to_video_marketing_standard.mp4',
-            'link' => 'https://example.com/marketing_standard',
-            'services_id' => 3, // Replace with appropriate Services ID for MARKETING STRATEGY
-        ]);
+
+
 
         // Community Management Service Plans
         PlanService::create([
-            'name' => 'Basic',
+            'name' => 'BRANDING PACK BASIC',
             'description' => 'Basic community management for small audiences',
             'features' => [
-                'Content moderation',
-                'Engagement tracking',
-                'Basic analytics',
+                'Manage 3 social media accounts Facebook, Instagram, TikTok',
+                '3 stories per day',
+                '3 reels per week',
+                'Ads message traffic',
+
             ],
             'image' => 'path_to_image_community_basic.jpg',
             'video' => 'path_to_video_community_basic.mp4',
@@ -222,13 +184,14 @@ class PlanServiceSeeder extends Seeder
         ]);
 
         PlanService::create([
-            'name' => 'Standard',
+            'name' => 'BRANDING PACK Standard',
             'description' => 'Advanced community management for larger audiences',
             'features' => [
-                'Campaign management',
-                'Advanced engagement tools',
-                'Custom analytics',
-                'Influencer partnerships',
+                'Manage 5 social media accounts Facebook, Instagram, TikTok',
+                '3 stories per day',
+                '4 reels per week',
+                'Ads message traffic',
+                '2 models',
             ],
             'image' => 'path_to_image_community_standard.jpg',
             'video' => 'path_to_video_community_standard.mp4',
@@ -236,14 +199,34 @@ class PlanServiceSeeder extends Seeder
             'services_id' => 2, // Replace with appropriate Services ID for COMMUNITY MANAGEMENT
         ]);
 
+        PlanService::create([
+            'name' => 'BRANDING PACK VIP ',
+            'description' => 'Advanced community management for larger audiences',
+            'features' => [
+                'Manage 5 social media accounts Facebook, Instagram, TikTok',
+                '5 stories per day',
+                '2 reels per week',
+                'Ads message traffic',
+                '5 models',
+            ],
+            'image' => 'path_to_image_community_vip.jpg',
+            'video' => 'path_to_video_community_vip.mp4',
+            'link' => 'https://example.com/community_vip',
+            'services_id' => 2, // Replace with appropriate Services ID for COMMUNITY MANAGEMENT
+        ]);
+
         // Ads Service Plans
         PlanService::create([
-            'name' => 'Basic',
+            'name' => 'Ads Management',
             'description' => 'Basic ads management for small budgets',
             'features' => [
-                'Google Ads setup',
-                'Keyword research',
-                'Basic ad optimization',
+                'Manage ads on social media',
+                'create and scale ads for up to 3 products',
+                'product page with additional posts for scaling',
+                'daily reports with scaling information',
+                'live chat support',
+                '4 ad accounts',
+
             ],
             'image' => 'path_to_image_ads_basic.jpg',
             'video' => 'path_to_video_ads_basic.mp4',
@@ -252,18 +235,18 @@ class PlanServiceSeeder extends Seeder
         ]);
 
         PlanService::create([
-            'name' => 'Standard',
-            'description' => 'Standard ads management for higher impact',
+            'name' => 'Marketing Strategy',
+            'description' => 'Comprehensive marketing package for established businesses',
             'features' => [
-                'Ad campaign management',
-                'A/B testing',
-                'Conversion tracking',
-                'Advanced keyword strategy',
+                'Develop a marketing strategy for your project',
+                '2 months of application tracking',
+                '30-minute ad review meetings every 2 weeks',
+                '10 ad accounts',
             ],
-            'image' => 'path_to_image_ads_standard.jpg',
-            'video' => 'path_to_video_ads_standard.mp4',
-            'link' => 'https://example.com/ads_standard',
-            'services_id' => 5, // Replace with appropriate Services ID for ADS
+            'image' => 'path_to_image_marketing_standard.jpg',
+            'video' => 'path_to_video_marketing_standard.mp4',
+            'link' => 'https://example.com/marketing_standard',
+            'services_id' => 3,
         ]);
 
     }

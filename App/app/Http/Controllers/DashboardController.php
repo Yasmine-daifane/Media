@@ -15,6 +15,7 @@ class DashboardController extends Controller
     {
         $services = Services::all();
         $user = Auth::user(); // Get the authenticated user
+        
         $userTypeServiceCount = $user->userTypeServices()->count();
       
         $totalRechargeAmount = RechargeBalance::where('user_id', $user->id)->sum('price'); // Calculate total recharge amount
