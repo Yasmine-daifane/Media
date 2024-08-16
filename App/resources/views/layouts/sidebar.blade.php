@@ -18,15 +18,15 @@
                     Menu
                 </button>
                 <a href="#">
-                    <img class="w-10 h-auto" src="https://raw.githubusercontent.com/kamona-ui/dashboard-alpine/main/public/assets/images/logo.png" alt="K-UI"/>
-                </a>
+    <img class="w-10 h-auto" src="{{ asset('img/admin-ajax-logo.png') }}" alt="Admin Logo"/>
+</a>
             </nav>
 
             <!-- Left mini bar -->
             <nav aria-label="Options" class="z-20 flex-col items-center flex-shrink-0 hidden w-16 py-4 bg-white border-r-2 border-indigo-100 shadow-md sm:flex rounded-tr-3xl rounded-br-3xl">
                 <div class="flex-shrink-0 py-4">
                     <a href="#">
-                        <img class="w-10 h-auto" src="https://raw.githubusercontent.com/kamona-ui/dashboard-alpine/main/public/assets/images/logo.png" alt="K-UI"/>
+                    <img class="w-10 h-auto" src="{{ asset('img/admin-ajax-logo.png') }}" alt="Admin Logo"/>
                     </a>
                 </div>
                 <div class="flex flex-col items-center flex-1 p-2 space-y-4">
@@ -59,7 +59,10 @@
                     <!-- Logo -->
                     <div class="flex items-center justify-center flex-shrink-0 py-10">
                         <a href="#">
-                            <img class="w-24 h-auto" src="https://raw.githubusercontent.com/kamona-ui/dashboard-alpine/main/public/assets/images/logo.png" alt="K-UI"/>
+                        
+
+                            <img class="w-24 h-auto" src="{{ asset('img/admin-ajax-logo.png') }}" alt="Admin Logo"/>
+
                         </a>
                     </div>
 
