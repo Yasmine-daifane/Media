@@ -59,7 +59,7 @@
                     <!-- Logo -->
                     <div class="flex items-center justify-center flex-shrink-0 py-10">
                         <a href="#">
-                        
+
 
                             <img class="w-24 h-auto" src="{{ asset('img/admin-ajax-logo.png') }}" alt="Admin Logo"/>
 
@@ -68,6 +68,19 @@
 
                     <!-- Links -->
                     <div class="flex-1 px-4 space-y-2 overflow-hidden hover:overflow-auto">
+
+
+
+                    <a @click.prevent="navigateTo('{{ route('dashboard') }}', 'linksTab')" class="flex items-center justify-between w-full space-x-2 text-gray-700 rounded-lg hover:bg-gray-200 cursor-pointer">
+                            <div class="flex items-center space-x-2">
+                                <span aria-hidden="true" class="p-2 bg-gray-200 rounded-lg">
+                                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" viewBox="0 0 20 20" fill="currentColor">
+                                        <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11V5h-2v2H7v2h2v2h2V9h2V7h-2z" clip-rule="evenodd" />
+                                    </svg>
+                                </span>
+                                <span>Dashbord</span>
+                            </div>
+                        </a>
                         <!-- All Services link -->
                         <a @click.prevent="navigateTo('{{ route('services.index') }}', 'linksTab')" class="flex items-center justify-between w-full space-x-2 text-gray-700 rounded-lg hover:bg-gray-200 cursor-pointer">
                             <div class="flex items-center space-x-2">
